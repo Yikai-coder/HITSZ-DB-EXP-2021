@@ -1,0 +1,85 @@
+body{
+    background:url('../img/IndexBackground.jpg');
+    background-repeat:no-repeat;
+    background-size:100% auto;
+}
+#signup-box{
+    width:30%;
+    height:auto;
+    margin:0 auto ;
+    margin-top:13%;
+    text-align:center;
+    background:#00000060;
+    padding:20px 50px;
+    }
+#signup-box h1{
+    color:#fff;
+}
+#signup-box .form .item{
+    margin-top:15px;
+}
+#signup-box .form .item i{
+    font-size:18px;
+    color:#fff;
+}
+#signup-box .form .item input{
+    width:180px;
+    font-size:18px;
+    border:0;
+    border-bottom:2px solid #fff;
+    padding:5px 10px;
+    background:#ffffff00;
+    color:#fff;
+}
+#signup-box 	button{
+    margin-top:20px;
+    width:190px;
+    height:30px;
+    font-size:20px;
+    font-weight:700;
+    color:#fff;
+    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+    border:0;
+    border-radius:15px;
+}
+
+
+input::-webkit-input-placeholder{
+    color:#ffffffea;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+color:#ffffffea;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+    color:#ffffffea;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+    color:#ffffffea;
+}
+  
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+    /* transparent是全透明黑色(black)的速记法，即一个类似rgba(0,0,0,0)这样的值 */
+}
+    
+    
+    /* Mozilla Firefox 4 to 18 */
+    
+input:focus:-moz-placeholder {
+color: transparent;
+}
+
+
+/* Mozilla Firefox 19+ */
+
+input:focus::-moz-placeholder {
+color: transparent;
+}
+
+
+/* Internet Explorer 10+ */
+
+input:focus:-ms-input-placeholder {
+color: transparent;
+}
+/* 点击搜索框获取焦点 placeholder消失-结束 */

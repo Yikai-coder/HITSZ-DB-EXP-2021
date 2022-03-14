@@ -1,0 +1,38 @@
+
+.backgroundCover{
+    background: #000; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px; 
+    width: 100%; 
+    filter: alpha(opacity=30); 
+    opacity: 0.5; 
+    display: none; 
+    z-index: 2 
+}
+
+.showWindow{
+    width: 500px; 
+    margin: 0 auto; 
+    height: 600px; 
+    /* border: 1px solid #999;  */
+    display: none; 
+    position: absolute; 
+    top: 20%; 
+    left: 40%; 
+    z-index: 3; 
+    background: #fff"
+}
+
+.windowTitle{
+    font-size: large;
+}
+
+.windowContent{
+    text-indent: 50px; 
+    height: 4rem; 
+    font-size: 0.5rem; 
+    padding: 0.5rem; 
+    line-height: 1rem;
+    background: #F8F7F7; 
+}

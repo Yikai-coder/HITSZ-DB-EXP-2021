@@ -1,0 +1,31 @@
+﻿  main.c
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(167,21): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(292,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(294,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(333,13): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(335,13): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(341,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(434,9): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(436,9): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(442,13): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(508,9): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(562,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(564,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(570,21): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(593,9): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(696,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(698,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(704,21): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(723,9): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(779,13): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(781,13): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(783,13): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(785,13): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(792,17): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(902,9): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(1023,21): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(1025,21): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(1032,25): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\main.c(1146,9): warning C4996: 'itoa': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _itoa. See online help for details.
+LINK : warning LNK4075: 忽略“/INCREMENTAL”(由于“/OPT:ICF”规范)
+  DB5.vcxproj -> E:\Github_repositories\db_exp\exp5\db_exp5\extmem-c\Release\DB5.exe

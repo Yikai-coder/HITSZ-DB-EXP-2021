@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&amp;family=Open+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/css/fonts.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/consumer_page.css">
+
+  <style>
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 10px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="../static/img/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <header class="section page-header">
+      <!--RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+          data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-xl-layout="rd-navbar-static"
+          data-xxl-layout="rd-navbar-static" data-md-device-layout="rd-navbar-fixed"
+          data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+          data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="121px" data-xl-stick-up-offset="121px"
+          data-xxl-stick-up-offset="121px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse">
+            <span></span></div>
+          <div class="rd-navbar-aside-outer rd-navbar-collapse">
+            <div class="rd-navbar-aside">
+              哈尔滨工业大学(深圳)食堂订餐系统
+            </div>
+          </div>
+          <div class="rd-navbar-main-outer">
+            <div class="rd-navbar-main">
+              <!--RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!--RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!--RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <!--Brand--><a class="brand" href="consumer_page.html"><img class="brand-logo-dark"
+                      src="../static/img/logo-default-151x53.svg" alt="" width="151" height="53" /></a>
+                </div>
+              </div>
+              <div class="rd-navbar-main-element">
+                <div class="rd-navbar-nav-wrap">
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="consumer_page.html">经营状况</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" id='jump_to_canteen_manage'>食堂管理</a>
+                    <!-- </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">我的信息</a>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Order List-->
+    <section >
+      <div class="container" style="text-align: center;" width="100%" height = "100%">
+        <h1>经营情况</h1>
+        <div class="container grid-demo grid-demo-underlined" id='stallList'>
+          <!-- <table border="1" style="text-align: center; width: 80%; position: absolute; height: 100%" id="orderTable">
+          </table> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="section footer bg-primary">
+      <div class="container">
+        <div class="row row-50 align-items-center">
+          <div class="col-md-3 col-6 order-md-1">
+            <ul class="footer-nav">
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微信</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微博</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">美团</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">饿了吗</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6">
+            <div class="footer-newsletter-box">
+            </div>
+            <p class="rights">Copyright &copy; 2021 Yikai-coder All rights reserved.<a target="_blank" href="https://github.com/Yikai-coder">Github Profile</a></p>
+          </div>
+          <div class="col-lg-1 d-none d-lg-block">
+            <div class="footer-border"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="snackbars" id="form-output-global"></div>
+
+
+  <script src="../static/js/core.min.js"></script>
+  <script src="../static/js/script.js"></script>
+  <script src="../static/js/my_script.js"></script>
+  <script type='text/javascript'>
+    var account;
+    var canteenID;
+
+
+    $(document).ready(function(){
+        account = GetQueryString("account");
+        getCanteenID(account);
+        document.getElementById('jump_to_canteen_manage').href='canteen_manage?account='+account;
+    });
+
+    function getCanteenStalls() {
+      $.ajax({
+        url: '/getCanteenStallsInfo',
+        data: {'canteenID': canteenID},
+        datatype: 'json',
+        type: 'POST',
+        success: function(res)
+        {
+          var stalls = res.stalls;
+          var str = "<div class='row'>\
+                      <div class='col-3'></div>\
+                      <div class='col-3'>\
+                        <h6 align='center'>档口名</h6>\
+                      </div>\
+                      <div class='col-3'>\
+                        <h6 align='center'>营业额</h6>\
+                      </div>\
+                      <div class='col-3'></div>\
+                    </div>\
+                  ";
+          for (var i = 0; i < stalls.length; i++)
+          {
+            str+="<div class='row'>\
+                    <div class='col-3'></div>\
+                    <div class='col-3'>\
+                      <h6 align='center'>"+stalls[i][0]+"</h6>\
+                    </div>\
+                    <div class='col-3'>\
+                      <h6 align='center'>￥"+stalls[i][1]+"</h6>\
+                    </div>\
+                    <div class='col-3'></div>\
+                  </div>\
+                  "
+          } 
+          document.getElementById('stallList').innerHTML = str;
+        }
+
+      })
+    };
+
+    function test()
+    {
+        console.log("Account:");
+        console.log(account);
+    }
+    function getCanteenID(account){
+        $.ajax({
+            url: 'getCanteenIDByManagerAccount',
+            data: {'account': account},
+            datatype: 'json',
+            type: 'POST',
+            success: function(res)   
+            {
+                if(res.code==0)
+                {
+                    console.log("Manager doesn't manage a canteen now!");
+                    canteenID = -1;
+                }
+                else
+                {
+                    console.log("canteenID:");
+                    canteenID = res.canteenID;
+                    console.log(canteenID);
+                    getCanteenStalls();
+                }
+            },
+            fail: function(res)
+            {
+                console.log("Fail to get canteen ID");
+            },
+            complete: function(res)
+            {
+                console.log(res);
+            }
+        })
+    };
+  </script>
+  </body>
+</html>

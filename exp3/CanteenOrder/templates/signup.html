@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="../static/css/signup.css" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="signup-box">
+        <h1>SignUp</h1>
+        <div class="form" id="SignUpInfo">
+            <div class="item">
+                <i class="fa fa-github-alt" style="font-size:24px"></i>
+                <input type="text" placeholder="Username" id="userNameInput">
+            </div>
+            <div class="item">
+                <i class="fa fa-github-alt" style="font-size:24px"></i>
+                <input type="text" placeholder="Name" id="nameInput">
+            </div>
+            <div class="item">
+                <i class="fa fa-search" style="font-size:24px"></i>
+                <input type="text" placeholder="Password" , id="passwdInput">
+            </div>
+            <div class="item">
+                <i class="fa fa-search" style="font-size:24px"></i>
+                <input type="text" placeholder="Please type in the password again" , id="passwdInputAgain">
+            </div>
+            <div class="item" style="color:#ffffffea;">
+                请选择您的身份
+                <select id="character">
+                    <option value="消费者">消费者</option>
+                    <option value="商户">商户</option>
+                    <option value="经理">经理</option>
+                    <select>
+            </div>
+        </div>
+        <button onclick="Signup()">确认注册</button>
+    </div>
+
+    <script type="text/javascript">
+        function Signup() {
+            userName = document.getElementById("userNameInput").value
+            name = document.getElementById("nameInput").value
+            passwd = document.getElementById("passwdInput").value
+            passwdAgain = document.getElementById("passwdInputAgain").value
+            character = document.getElementById("character").value
+            if (userName == "" || passwd == "" || passwdAgain == "") {
+                alert("请输入所有信息！")
+            } else if (userName.length > 10)
+                alert("您的用户名太长了！")
+            else if (passwd.length > 20)
+                alert("您的密码太长了！")
+            else if (passwd != passwdAgain) {
+                alert("两次输入的密码不同")
+            } else {
+                $.ajax({
+                    url: "/signup_submit",
+                    data: {
+                        'account': userName,
+                        'name': name,
+                        'passwd': passwd,
+                        'character': character
+                    },
+                    dataType: "json",
+                    type: "POST",
+                    success: function (res) {
+                        alert("注册成功！")
+                        window.location.href = "/index"
+                    },
+                    fail: function (res) {
+                        alert("注册失败，请联系管理员！")
+                        console.log(res)
+                    }
+                })
+            }
+
+        }
+    </script>
+</body>
+
+</html>

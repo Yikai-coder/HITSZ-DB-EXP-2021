@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+
+<head>
+  <title>Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="../static/imgs/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&amp;family=Open+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/css/fonts.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/details.css">
+  <style>
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 10px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="../static/imgs/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <header class="section page-header">
+      <!--RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+          data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-xl-layout="rd-navbar-static"
+          data-xxl-layout="rd-navbar-static" data-md-device-layout="rd-navbar-fixed"
+          data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+          data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="121px" data-xl-stick-up-offset="121px"
+          data-xxl-stick-up-offset="121px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse">
+            <span></span></div>
+          <div class="rd-navbar-aside-outer rd-navbar-collapse">
+            <div class="rd-navbar-aside">
+              哈尔滨工业大学(深圳)食堂订餐系统
+            </div>
+          </div>
+          <div class="rd-navbar-main-outer">
+            <div class="rd-navbar-main">
+              <!--RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!--RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!--RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <!--Brand--><a class="brand" href="consumer_page.html"><img class="brand-logo-dark"
+                      src="../static/img/logo-default-151x53.svg" alt="" width="151" height="53" /></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Breadcrumbs-->
+    <div class="breadcrumbs-mini">
+      <div class="container">
+        <div class="breadcrumbs-mini-link-wrap"><a class="breadcrumbs-mini-link link-svg" href="javascript :;" onClick="javascript :history.back(-1);"><!--href="/consumer_page"--> 
+            <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M23.25 6.75H5.5375L10.0125 2.2625L8.25 0.5L0.75 8L8.25 15.5L10.0125 13.7375L5.5375 9.25H23.25V6.75Z">
+              </path>
+            </svg></a></div>
+      </div>
+    </div>
+    <!-- dish details-->
+    <div>
+      <section class="section section-md section-md-3 bg-primary-light-4">
+        <div class="container">
+          <div class="row row-50 justify-content-between">
+            <div class="col-xl-5 col-md-6"><img src="" alt="" width="510" height="349" id='dishImage'></div>
+            <div class="col-md-6">
+              <div class="menu">
+                <div class="menu-head">
+                  <h4 class="menu-head-title" id='dishName'></h4>
+                  <p id='dishRank'></p>
+                </div>
+                <hr>
+                <div class="menu-body">
+                  <div class="menu-item">
+                    <div class="menu-content">
+                      <!-- <p class="lead menu-title">Salmon Sandwich</a></p> -->
+                      <p class="menu-description" id='dishDescription'></p>
+                    </div>
+                    <div class="h5 menu-price" id='dishPrice'></div>
+                  </div>
+                  </div>
+                  <button class="btn btn-secondary btn-circle" onclick="openConfirmPage()">现在下单</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+    </div>
+    <!-- 遮罩层 -->
+    <div id="cover" class="backgroundCover">
+    </div>
+    <!-- 弹窗 -->
+    <!-- <div  style="min-height: 650px; height: auto; width: 100%; position: absolute; top: 10%; left: 40%; z-index: 3; opacity: 0"> -->
+    <div class="col-md-9 col-lg-7 col-xl-5" id='showWindow' style="min-height: 650px; height: auto; width: 500px; position: absolute; top: 10%; left: 40%; z-index: 3; background: #ffffff; border: 1px solid #000000;border-radius: 5px;">
+      <h3 align="center" style="margin-top:10px">您的订单</h3>
+      <div style="float: right; top: 2%; right:2%; z-index: 4; position: absolute">
+        <button onclick="closeWindow()">
+          <svg t="1635298639184" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2419" width="32" height="32"><path d="M550.848 502.496l308.64-308.896a31.968 31.968 0 1 0-45.248-45.248l-308.608 308.896-308.64-308.928a31.968 31.968 0 1 0-45.248 45.248l308.64 308.896-308.64 308.896a31.968 31.968 0 1 0 45.248 45.248l308.64-308.896 308.608 308.896a31.968 31.968 0 1 0 45.248-45.248l-308.64-308.864z" p-id="2420"></path></svg>
+        </button>
+      </div>
+      <!--RD Mailform-->
+      <form class="rd-form rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+        <div class="row row-20 row-narrow">
+          <div class="col-md-6" >
+            <p align="center" style="font-size:medium;">菜品</p>
+          </div>
+          <div class="col-md-6">
+            <p align= "center" style="font-size:medium;" id="windowDishName"></p>
+          </div>
+          <div class="col-12">
+            <div class="form-wrap">
+              <input class="form-input" id="destination" name="message" data-constraints="@Required">
+              <label class="form-label" for="destination">地址</label>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-wrap">
+              <label class="form-label" for="remark">备注</label>
+              <textarea class="form-input" id="remark" name="message" data-constraints="@Required"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-circle" style="display:block;margin:0 auto" onclick="submitOrder()">提交</button>
+        </div>
+      </form>
+    </div>
+      <!-- Footer-->
+      <footer class="section footer bg-primary">
+        <div class="container">
+          <div class="row row-50 align-items-center">
+            <div class="col-md-3 col-6 order-md-1">
+              <ul class="footer-nav">
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微信</a></li>
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微博</a></li>
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">美团</a></li>
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">饿了吗</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-5 col-md-6">
+              <div class="footer-newsletter-box">
+              </div>
+              <p class="rights">Copyright &copy; 2021 Yikai-coder All rights reserved.<a target="_blank" href="https://github.com/Yikai-coder">Github Profile</a></p>
+            </div>
+            <div class="col-lg-1 d-none d-lg-block">
+              <div class="footer-border"></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="../static/js/core.min.js"></script>
+    <script src="../static/js/script.js"></script>
+    <script src="../static/js/my_script.js"></script>
+    <script type=text/javascript> 
+      var account;
+      var dishID;
+      var dishName;
+      var dishPrice;
+      var dishDescription;
+      var dishImageUrl;
+      var dishTasteOption = [];
+      var dishSizeOption = [];
+      var dishIngredientOption = [];
+
+      function openConfirmPage() {
+        console.log(dishName);
+        document.getElementById("windowDishName").innerHTML = dishName;
+        //document.getElementById("dishSize").innerHTML; 
+        showWindow();
+        }
+      // 弹窗
+      function showWindow() {
+        $('#showWindow').show();  //显示弹窗
+        $('#cover').css('display','block'); //显示遮罩层
+        $('#cover').css('height',document.body.clientHeight+'px'); //设置遮罩层的高度为当前页面高度
+      };
+      // 关闭弹窗
+      function closeWindow() {
+        $('#showWindow').hide();  //隐藏弹窗
+        $('#cover').css('display','none');   //显示遮罩层
+      };
+      function drawDetails() {
+
+      };
+      // 提交订单
+      function submitOrder() {
+        destination = document.getElementById("destination").value;
+        remark = document.getElementById("remark").value;
+        console.log(destination, remark)
+        $.ajax({
+          url: "submitOrder",
+          data: {'dishID': dishID, 'account': account, 'destination': destination, 'remark': remark, 'amount':dishPrice},
+          type: "POST",
+          datatype: "JSON",
+          success: function(res){
+            alert("提交成功！");
+            window.location.href = "/consumer_page?account="+account;
+          },
+          fail: function(res){
+            alert("订单提交失败，请稍后再试！");
+          }
+        })
+      };
+
+      function Tab(id, num)
+      {
+          var i;
+          for(i=1;i<=4;i++)
+          {
+              if(i==num)
+                document.getElementById("d"+i).style.display="block";
+              else
+                document.getElementById("d"+i).style.display="none";
+          }
+      }
+
+      function drawOptionList(id, list) {
+        console.log(list)
+        if(list==null)
+          return;
+        str = "<ul>";
+        for(var i = 0; i <list.length; i++)
+        {
+          str+=" <li id=\"L"+toString(i)+"\" onclick=\"Tab(id, 1)\"><a href=\"#\">公告信息</a></li>"
+        }
+        str+="</ul>"
+
+      }
+
+      $(document).ready(function(){
+          account = GetQueryString('account');
+          dishID = GetQueryString('dishID');
+
+          $.ajax({
+            url: '/getDishInfo',
+            data: {'dishID': dishID},
+            dataType: "JSON",
+            type: "POST",
+            success: function(res){
+              console.log(res)
+              if(res.code==-1)
+              {
+                alert("发生了错误，请联系管理员");
+              }
+              var dishResult = res.dishResult;
+              console.log(dishResult);
+              dishName = dishResult[0];
+              dishRank = res.dishRank;
+              dishPrice = dishResult[1];
+              dishDescription = dishResult[2];
+              dishImageUrl = dishResult[3];
+
+              document.getElementById("dishName").innerHTML = dishName;
+              document.getElementById("dishRank").innerHTML = "菜品评分:"+dishRank+"/3";
+              document.getElementById("dishDescription").innerHTML = dishDescription;
+              document.getElementById("dishPrice").innerHTML = "￥"+dishPrice;
+              document.getElementById("dishImage").src = dishImageUrl;
+              
+              $('#showWindow').hide();  //隐藏弹窗
+
+            }
+          })
+      })
+    </script>
+  </body>
+</html>

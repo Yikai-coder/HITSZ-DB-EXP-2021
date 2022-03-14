@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+
+<head>
+  <title>Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="../static/imgs/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&amp;family=Open+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/css/fonts.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <style>
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 10px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+  </style>
+  <style>
+    td {
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px;
+    }
+
+    .btnAddLv1Menu,
+    .btnAddLv2Menu {
+      width: 100px;
+    }
+
+    input,
+    select {
+      padding: 5px;
+      width: 100px;
+    }
+
+    .lv1Menu {
+      border-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="../static/imgs/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <header class="section page-header">
+      <!--RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+          data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-xl-layout="rd-navbar-static"
+          data-xxl-layout="rd-navbar-static" data-md-device-layout="rd-navbar-fixed"
+          data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+          data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="121px" data-xl-stick-up-offset="121px"
+          data-xxl-stick-up-offset="121px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse">
+            <span></span></div>
+          <div class="rd-navbar-aside-outer rd-navbar-collapse">
+            <div class="rd-navbar-aside">
+              哈尔滨工业大学(深圳)食堂订餐系统
+            </div>
+          </div>
+          <div class="rd-navbar-main-outer">
+            <div class="rd-navbar-main">
+              <!--RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!--RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!--RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <!--Brand--><a class="brand" href="stall_keeper_page"><img class="brand-logo-dark"
+                      src="../static/img/logo-default-151x53.svg" alt="" width="151" height="53" /></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Breadcrumbs-->
+    <div class="breadcrumbs-mini">
+      <div class="container">
+        <div class="breadcrumbs-mini-link-wrap">
+          <a class="breadcrumbs-mini-link link-svg" href="javascript :;"
+            onClick="javascript :history.back(-1);">
+            <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M23.25 6.75H5.5375L10.0125 2.2625L8.25 0.5L0.75 8L8.25 15.5L10.0125 13.7375L5.5375 9.25H23.25V6.75Z">
+              </path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <section class="section section-md section-md-3">
+      <div class="container">
+        <div class="row">
+          <div class="tableform" style="width: 100%;">
+            <form id='menuForm' action="http://www.baidu.com" method="post">
+              <div class="tableform">
+                <table width="100%" border="1" cellspacing="0" cellpadding="0" style="border:1px solid #ccc">
+                  <tr>
+                      <td width="7%"><button type="button" class="btnAddLv1Menu">添加档口</button></td>
+                      <td width="10%">档口名称</td>
+                      <td width="30%">档口负责人</td>
+                      <td width="60%">档口图片</td>
+                  </tr>
+                  <!-- 数据显示区域 -->
+                </table>
+              </div>
+              <div class="table-action">
+                <div class="btn btn-sm btn-secondary btn-round-2" onclick="updateStall()">保存</div>
+              </div>
+            </form>
+          </div>
+          <!-- 一级菜单模板 -->
+          <table id="lv1Menu_tpl" style="display: none">
+            <tr class="lv1Menu">
+              <td>
+                <button type="button" class="btnRemoveMenu">删除</button>
+              </td>
+              <td>
+                <input type='text' name='stallName' class="x-input">
+              </td>
+              <td>
+                <input type='text' name='stallKeeper' class="x-input">
+              </td>
+              <td>
+                <input type='text' name='stallImageUrl' class="x-input" width="95%">
+              </td>
+            </tr>
+          </table>
+        </div>  
+      </div>
+    </section>
+    
+    <!-- Footer-->
+    <footer class="section footer bg-primary">
+      <div class="container">
+        <div class="row row-50 align-items-center">
+          <div class="col-md-3 col-6 order-md-1">
+            <ul class="footer-nav">
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微信</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微博</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">美团</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">饿了吗</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6">
+            <div class="footer-newsletter-box">
+            </div>
+            <p class="rights">Copyright &copy; 2021 Yikai-coder All rights reserved.<a target="_blank" href="https://github.com/Yikai-coder">Github Profile</a></p>
+          </div>
+          <div class="col-lg-1 d-none d-lg-block">
+            <div class="footer-border"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="../static/js/core.min.js"></script>
+  <script src="../static/js/script.js"></script>
+  <script src="../static/js/my_script.js"></script>
+  <script>
+    var account;
+    var menus=[];
+
+    $(function () {
+      //添加一级菜单
+      $(document.getElementById("menuForm")).on("click", ".btnAddLv1Menu", function () {
+        console.log("Try to append stall");
+        //数据变化
+        var menu = {'stallName':'', 'stallKeeper':'', 'stallImageUrl':'', 'stallID':''};
+        menus.push(menu);
+        //样式变化
+        render(menus);
+      });
+
+      //删除菜单
+      $(document.getElementById("menuForm")).on("click", ".btnRemoveMenu", function () {
+        var tr = $(this).parents("tr");
+        if (tr.hasClass("lv1Menu")) {
+          var lv1MenuIndex = $("#menuForm .lv1Menu").index(tr);
+          menus.splice(lv1MenuIndex, 1);
+        } else if (tr.hasClass("lv2Menu")) {
+          var lv1MenuIndex = tr.prevAll(".lv1Menu").length - 1;
+          var lv2MenuIndex = tr.prevUntil(".lv1Menu").length;
+          menus[lv1MenuIndex]['sub_button'].splice(lv2MenuIndex, 1);
+        }
+        render(menus);
+      });
+      //失去焦点
+      $(document.getElementById("menuForm")).on("blur", "input", function () {
+        var name = $(this).attr('name');
+        var tr = $(this).parents("tr");
+        if (tr.hasClass("lv1Menu")) {
+          var lv1MenuIndex = $("#menuForm .lv1Menu").index(tr);
+          menus[lv1MenuIndex][name] = $(this).val();
+        } else if (tr.hasClass("lv2Menu")) {
+          var lv1MenuIndex = tr.prevAll(".lv1Menu").length - 1;
+          var lv2MenuIndex = tr.prevUntil(".lv1Menu").length;
+          menus[lv1MenuIndex]['sub_button'][lv2MenuIndex][name] = $(this).val();
+        }
+      });
+      //下拉列表
+      $(document.getElementById("menuForm")).on("change", "select", function () {
+        var tr = $(this).parents("tr");
+        var name = $(this).attr('name');
+        var value = $(this).val();
+        if (tr.hasClass("lv1Menu")) {
+          var lv1MenuIndex = $("#menuForm .lv1Menu").index(tr);
+          if (value) {
+            menus[lv1MenuIndex][name] = value;
+            if (value == 'click') {
+              menus[lv1MenuIndex]['key'] = '';
+            } else if (value == 'view') {
+              menus[lv1MenuIndex]['url'] = '';
+            }
+            delete menus[lv1MenuIndex]['sub_button'];
+          } else {
+            delete menus[lv1MenuIndex]['key'];
+            delete menus[lv1MenuIndex]['url'];
+            delete menus[lv1MenuIndex]['type'];
+            menus[lv1MenuIndex]['sub_button'] = new Array();
+          }
+        } else if (tr.hasClass("lv2Menu")) {
+          var lv1MenuIndex = tr.prevAll(".lv1Menu").length - 1;
+          var lv2MenuIndex = tr.prevUntil(".lv1Menu").length;
+          menus[lv1MenuIndex]['sub_button'][lv2MenuIndex][name] = $(this).val();
+        }
+        render(menus);
+      });
+      $(document.getElementById("menuForm")).on("submit", function () {
+        console.log(menus);
+        return false;
+      });
+    });
+
+
+    //tr渲染
+    function trRender(parentEle, menu, prevEle) {
+      if (!parentEle) {
+        if (!prevEle) {
+          parentEle = $("#lv1Menu_tpl .lv1Menu").clone(true);
+          var tbody = $("#menuForm table tbody");
+          tbody.append(parentEle);
+        } else {
+          parentEle = $("#lv2Menu_tpl .lv2Menu").clone(true);
+          prevEle.after(parentEle);
+        }
+      }
+      parentEle = $(parentEle);
+      parentEle.find("input[name='stallName']").val(menu['stallName']);
+      parentEle.find("input[name='stallKeeper']").val(menu['stallKeeper']);
+      parentEle.find("input[name='stallImageUrl']").val(menu['stallImageUrl']);
+      if (menu['stallKeeper']) {
+        parentEle.find(".btnAddLv2Menu").hide();
+        parentEle.find(".btnRemoveMenu").css('margin-left', '108px');
+        parentEle.find("select[name='stallKeeper']").val(menu['stallKeeper']);
+      } else {
+        parentEle.find(".btnRemoveMenu").css('margin-left', '0');
+        parentEle.find(".btnAddLv2Menu").show();
+      }
+      /*if (menu['key'] != undefined) {
+        parentEle.find("input[name='url']").attr('name', 'key');
+        parentEle.find("input[name='key']").val(menu['key']).show();
+      } else if (menu['url'] != undefined) {
+        parentEle.find("input[name='key']").attr('name', 'url');
+        parentEle.find("input[name='url']").val(menu['url']).show();
+      } else {
+        parentEle.find("input[name='key']").hide();
+        parentEle.find("input[name='url']").hide();
+      }*/
+      return parentEle;
+    }
+    //菜单渲染
+    function render(menus) {
+      var parentEle = $(document.getElementById("menuForm"));
+      var lv1Menus = parentEle.find(".lv1Menu");
+      for (var i = 0; i < menus.length; i++) {
+        var lv1Menu = trRender(lv1Menus[i], menus[i], null);
+        if (menus[i]['sub_button'] && menus[i]['sub_button'].length > 0) {
+          var sub_menus = menus[i]['sub_button'];
+          for (var j = 0; j < sub_menus.length; j++) {
+            var lv2Menus = lv1Menu.nextUntil(".lv1Menu");
+            trRender(lv2Menus[j], sub_menus[j], lv2Menus.length > 0 ? lv2Menus.last() : lv1Menu);
+          }
+          //tr行数大于记录数时
+          if (lv2Menus.length > menus[i]['sub_button'].length) {
+            for (var j = menus[i]['sub_button'].length; j < lv2Menus.length; j++) {
+              lv2Menus[j].remove();
+            }
+          }
+
+        } else {
+          lv1Menu.nextAll(".lv2Menu").remove();
+        }
+      }
+
+      //tr行数大于记录数时
+      lv1Menus = parentEle.find(".lv1Menu");
+      if (lv1Menus.length > menus.length) {
+        for (var i = menus.length; i < lv1Menus.length; i++) {
+          var lv2Menus = $(lv1Menus[i]).nextUntil(".lv1Menu");
+          lv2Menus.remove();
+          $(lv1Menus[i]).remove();
+        }
+      }
+    }
+
+    $(document).ready(function(){
+      account = GetQueryString("account");
+      $.ajax({
+        url: 'getStalls',
+        data: {'account': account},
+        dataType: "JSON",
+        type: "POST",
+        success: function(res)
+        {
+          console.log(res);
+          var result = res.stalls;
+          for(var i = 0; i < result.length; i++)
+          {
+            console.log(result[i]);
+            menus.push({
+              'stallName': result[i][2],
+              'stallKeeper': result[i][0],
+              'stallImageUrl': result[i][3],
+              'stallID': result[i][1]
+            })
+          }
+          render(menus);
+
+        },
+        fail: function(res)
+        {
+          console.log("Fail to get stalls");
+          console.log(res);
+        }
+      })
+    })
+
+    function updateStall() {
+      $.ajax({
+        url: 'updateStall',
+        data: {'stalls': JSON.stringify(menus), 'account': account},
+        type: 'POST',
+        datatype: 'JSON',
+        traditional: true,
+        success: function(res)
+        {
+          alert("更新成功！");
+        },
+        fail: function(res)
+        {
+          alert("更新失败！");
+        }
+      })
+    }
+  </script>
+</body>
+
+</html>
