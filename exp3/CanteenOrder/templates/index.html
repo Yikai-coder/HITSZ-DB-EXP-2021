@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" href="../static/css/index.css" />
+	<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+	<script src="../static/js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+	<div id="login-box">
+		<h1>Login</h1>
+		<div class="form" id="LoginInfo">
+			<div class="item">
+				<i class="fa fa-github-alt" style="font-size:24px"></i>
+				<input type="text" placeholder="Username" id="userNameInput" style="color:aliceblue;">
+			</div>
+			<div class="item">
+				<i class="fa fa-search" style="font-size:24px"></i>
+				<input type="text" placeholder="Password" , id="passwdInput">
+			</div>
+		</div>
+		<button onclick="Login()">Login</button>
+		<button onclick="javascrtpt:window.location.href='signup'">SignUp</button>
+	</div>
+	<script type="text/javascript">
+		function Login() {
+			var userName = document.getElementById("userNameInput").value
+			var passwd = document.getElementById("passwdInput").value
+			//这里为用ajax获取用户信息并进行验证，如果账户密码不匹配则登录失败
+			$.ajax({
+				url: "login", // 获取自己系统后台用户信息接口
+				data: {
+					"userName": userName,
+					"passwd": passwd
+				},
+				type: "POST",
+				dataType: "json",
+				// TODO:添加登录信息的提示给用户能够看到
+				success: function (data) {
+					if (data.code == "0") { //判断返回值，这里根据的业务内容可做调整
+						setTimeout(function () { //做延时以便显示登录状态值
+							console.log(data);
+							account = data.account;
+							characterVal = data.characterVal
+							var url;
+							if (characterVal == '消费者')
+								url = "/consumer_page?account=" + account;
+							else if (characterVal == '商户')
+								url = "/stall_keeper_page?account=" + account;
+							else if (characterVal == '经理')
+								url = "/manager_page?account=" + account;
+							else;
+
+							window.location.href = url; //指向登录的页面地址
+						}, 100)
+					} else {
+						//showMsg(data.message);//显示登录失败的原因
+						console.log(data.message)
+						return false;
+					}
+				},
+				error: function (data) {
+					//showMsg(data.message);
+					console.log(data.message)
+				}
+			});
+		}
+	</script>
+
+</body>
+
+</html>

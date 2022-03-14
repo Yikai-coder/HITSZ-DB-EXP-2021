@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&amp;family=Open+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/css/fonts.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/consumer_page.css">
+  <link rel="stylesheet" href="../static/css/details.css">
+
+
+  <style>
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 10px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+
+    .cleanfloat::after{display: block; clear: both; content:""; visibility: hidden; height: 0;}/*清浮动*/
+    .cleanfloat li {list-style:none; float:left; font-size:30px; margin:5px; color:#ccc; cursor:pointer;}/*五角星样式*/
+    .cleanfloat {float:right; margin-right: 10%}
+    .color,.cs{color:rgb(245, 205, 30) !important;}/*五角星点击后样式*/
+  </style>
+</head>
+
+<body>
+  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="../static/img/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <header class="section page-header">
+      <!--RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+          data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-xl-layout="rd-navbar-static"
+          data-xxl-layout="rd-navbar-static" data-md-device-layout="rd-navbar-fixed"
+          data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+          data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="121px" data-xl-stick-up-offset="121px"
+          data-xxl-stick-up-offset="121px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse">
+            <span></span></div>
+          <div class="rd-navbar-aside-outer rd-navbar-collapse">
+            <div class="rd-navbar-aside">
+              哈尔滨工业大学(深圳)食堂订餐系统
+            </div>
+          </div>
+          <div class="rd-navbar-main-outer">
+            <div class="rd-navbar-main">
+              <!--RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!--RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!--RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <!--Brand--><a class="brand" href="consumer_page.html"><img class="brand-logo-dark"
+                      src="../static/img/logo-default-151x53.svg" alt="" width="151" height="53" /></a>
+                </div>
+              </div>
+              <div class="rd-navbar-main-element">
+                <div class="rd-navbar-nav-wrap">
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="consumer_page.html">订单</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link">点菜</a>
+                      <ul class="rd-menu rd-navbar-dropdown" , id="canteenList"></ul>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="contacts.html">联系我们</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Order List-->
+    <section >
+      <div class="container" style="text-align: center;" width="100%" height = "100%">
+        <h1>您的订单</h1>
+        <div class="container grid-demo grid-demo-underlined" id='orderList'>
+        </div>
+      </div>
+    </section>
+    <!-- 遮罩层 -->
+    <div id="cover" class="backgroundCover">
+    </div>
+    <!-- 确认订单完成弹窗 -->
+    <div class="col-md-9 col-lg-7 col-xl-5" id='showConfirmWindow' style="display: none; min-height: 150px; height: auto; width: 500px; position: absolute; top: 10%; left: 37%; z-index: 3; background: #ffffff; border: 1px solid #000000;border-radius: 5px;">
+      <div style="color:#85f76e; margin-top: 10%"> 
+        <h5 align="center">确认收到订单了吗</h5>
+      </div>  
+        <div class="btn btn-sm btn-secondary btn-round-2" onclick="closeConfirmWindow()" style="margin-left: 20%; margin-bottom: 10%; float: left">取消</div>
+        <div class="btn btn-sm btn-secondary btn-round-2" onclick="confirmOrder()" style="margin-right:20%; margin-bottom: 10%; float: right" id="confirmOrderButton">确定</div>
+    </div>
+    <!-- 评价弹窗 -->
+    <div class="col-md-9 col-lg-7 col-xl-5" id='showCommentWindow' style="display: none; min-height: 650px; height: auto; width: 500px; position: absolute; top: 10%; left: 40%; z-index: 3; background: #ffffff; border: 1px solid #000000;border-radius: 5px;">
+      <h3 align="center" style="margin-top:10px">评价</h3>
+      <div style="float: right; top: 2%; right:2%; z-index: 4; position: absolute">
+        <button onclick="closeCommentWindow()">
+          <svg t="1635298639184" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2419" width="32" height="32"><path d="M550.848 502.496l308.64-308.896a31.968 31.968 0 1 0-45.248-45.248l-308.608 308.896-308.64-308.928a31.968 31.968 0 1 0-45.248 45.248l308.64 308.896-308.64 308.896a31.968 31.968 0 1 0 45.248 45.248l308.64-308.896 308.608 308.896a31.968 31.968 0 1 0 45.248-45.248l-308.64-308.864z" p-id="2420"></path></svg>
+        </button>
+      </div>
+      <!--RD Mailform-->
+      <form class="rd-form rd-mailform">
+        <div class="row row-20 row-narrow">
+          <div class="col-md-6" >
+            <p align="center" style="font-size:medium;">菜品</p>
+          </div>
+          <div class="col-md-6">
+            <p align= "center" style="font-size:medium;" id="windowDishName"></p>
+          </div>
+          <div class="col-12">
+            <div class="form-wrap">
+              <label class="form-label" for="destination">食品评价</label>
+              <div id="starBg" class="star_bg">                    	
+                <ul class="cleanfloat">
+                    <li class='rank1' >★</li>
+                    <li class='rank1' >★</li>
+                    <li class='rank1' >★</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-wrap">
+              <label class="form-label" for="destination">档口评价</label>
+                <div id="starBg" class="star_bg">                    	
+                  <ul class="cleanfloat">
+                      <li class='rank2'>★</li>
+                      <li class='rank2'>★</li>
+                      <li class='rank2'>★</li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-wrap">
+              <label class="form-label" for="destination">食堂评价</label>
+              <div id="starBg" class="star_bg">                    	
+                <ul class="cleanfloat">
+                    <li class='rank3'>★</li>
+                    <li class='rank3'>★</li>
+                    <li class='rank3'>★</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-wrap">
+              <label class="form-label" for="remark">备注</label>
+              <textarea class="form-input" id="remark" name="message" data-constraints="@Required"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-secondary btn-circle" id='submitButton' style="display:block;margin:0 auto" onclick="submitComment()">提交</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Footer-->
+    <footer class="section footer bg-primary">
+      <div class="container">
+        <div class="row row-50 align-items-center">
+          <div class="col-md-3 col-6 order-md-1">
+            <ul class="footer-nav">
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微信</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微博</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">美团</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">饿了吗</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6">
+            <div class="footer-newsletter-box">
+            </div>
+            <p class="rights">Copyright &copy; 2021 Yikai-coder All rights reserved.<a target="_blank" href="https://github.com/Yikai-coder">Github Profile</a></p>
+          </div>
+          <div class="col-lg-1 d-none d-lg-block">
+            <div class="footer-border"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="../static/js/core.min.js"></script>
+  <script src="../static/js/script.js"></script>
+  <script src="../static/js/my_script.js"></script>
+  <script type=text/javascript> 
+    var canteenNames; 
+    var canteenIDs;
+    var account; 
+    var orderIDs = [];
+    var confirmOrderID;
+    var submitCommentOrderID;
+    var rank1;
+    var rank2;
+    var rank3; 
+    var dishRank;
+    var stallRank;
+    var canteenRank;
+    var remark;   
+
+    function getCanteenInfo (account) { 
+      $.ajax({
+        url: "/getCanteenInfo" , 
+        type: "POST" , 
+        success : function(res){ 
+          console.log(res); 
+          canteenNames=res.canteenNames;
+          canteenIDs=res.canteenIDs; 
+          var str="" ; 
+          console.log(canteenNames); 
+          for (var i=0; i < canteenNames.length; i++) {
+            str+='<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="menu?canteenID=' +canteenIDs[i]+'&account='+account+'">'+canteenNames[i]+'</a></li>';
+          }
+          console.log("str: "+str)
+          document.getElementById("canteenList").innerHTML=str;
+          console.log(document.getElementById("canteenList"));
+          }
+        })
+    };
+
+    function confirmFinish(orderID) {
+      console.log(orderID);
+      console.log("openFinish");
+      //document.getElementById("dishSize").innerHTML; 
+      showConfirmWindow(orderID);
+      confirmOrderID = orderID;
+    };
+
+    function comment(orderID){
+      console.log(orderID);
+      console.log("Open comment");
+      submitCommentOrderID = orderID;
+      showCommentWindow();
+
+    }
+    // 弹窗
+    function showConfirmWindow() {
+      $('#showConfirmWindow').show();  //显示弹窗
+      $('#cover').css('display','block'); //显示遮罩层
+      $('#cover').css('height',document.body.clientHeight+'px'); //设置遮罩层的高度为当前页面高度
+    };
+    // 关闭弹窗
+    function closeConfirmWindow() {
+      $('#showConfirmWindow').hide();  //隐藏弹窗
+      $('#cover').css('display','none');   //显示遮罩层
+    };
+
+    function showCommentWindow() {
+      $('#showCommentWindow').show();  //显示弹窗
+      $('#cover').css('display','block'); //显示遮罩层
+      $('#cover').css('height',document.body.clientHeight+'px'); //设置遮罩层的高度为当前页面高度
+      rank_select();
+    }
+
+    function closeCommentWindow() {
+      $('#showCommentWindow').hide();  //隐藏弹窗
+      $('#cover').css('display','none');   //显示遮罩层
+    }
+
+    function submitComment() {
+      remark = document.getElementById("remark").value;
+      console.log(remark);
+      console.log(rank1);
+      console.log(rank2);
+      console.log(rank3);
+      $.ajax({
+        url: '/submitComment',
+        data: {'dishRank': rank1, 'stallRank': rank2, 'canteenRank': rank3, 'remark': remark, 'indentID': submitCommentOrderID, 'account': account},
+        type: 'POST',
+        datatype: 'json',
+        success: function(res)
+        {
+          console.log("评价提交成功");
+          alert("评价提交成功");
+          location.reload();
+        },
+        fail: function(res)
+        {
+          alert("提交失败!");
+        }
+      })
+    }
+
+    function confirmOrder(orderID) {
+      console.log("确认订单完成");
+      console.log(confirmOrderID);
+      $.ajax({
+        url: '/confirmOrder',
+        data: {'orderID': confirmOrderID},
+        datatype: "JSON",
+        type: 'POST',
+        success: function(res)
+        {
+          location.reload()
+        },
+        fail: function(res)
+        {
+          consoe.log("Fail to confirm order!");
+          console.log(res);
+          closeWindow();
+        }
+      })
+    }
+
+    function drawOrderList(orderList, comments) {
+      console.log(comments);
+      var str = "";
+      var obj = document.getElementById("orderList");
+      str+="<div class='row'>\
+        <div class='col-4'>\
+          <h6>菜品名称</h6>\
+        </div>\
+        <div class='col-2'>\
+          <p>档口</p>\
+        </div>\
+        <div class='col-2'>\
+          <h6>金额</h6>\
+        </div>\
+        <div class='col-2'>\
+          <h6>状态</h6>\
+        </div>\
+        <div class='col-2'>\
+          动作\
+        </div>\
+      </div>\
+      "
+      for (var i = 0; i < orderList.length; i++)
+      {
+        str+="<div class='row'>\
+                <div class='col-4'>\
+                  <h6>"+orderList[i][2]+"</h6>\
+                </div>\
+                <div class='col-2'>\
+                  <p>"+orderList[i][8]+"</p>\
+                  <p>"+orderList[i][7]+"</p>\
+                </div>\
+                <div class='col-2'>\
+                  <h6>￥"+orderList[i][4]+"</h6>\
+                </div>\
+                <div class='col-2'>\
+                  <h6>"+orderList[i][6]+"</h6>\
+                </div>\
+                <div class='col-2'>\
+              "
+        if(orderList[i][6]=="未完成")
+          str+="<div class='btn btn-secondary btn-round-2' onclick='confirmFinish("+orderList[i][3]+")'>确认完成</div>"            
+        else
+        {
+          if(comments[i]==null)
+            str+="<div class='btn btn-secondary btn-round-2' onclick='comment("+orderList[i][3]+")'>点击评价</div>"
+          else
+            str+="<div>已完成评价</div>"
+        }
+        str+="</div>\</div>"
+        orderIDs.push(orderList[i][3]);
+      }
+      console.log(str);
+      obj.innerHTML = str;
+    };
+
+
+
+    function getConsumerOrder() {
+      $.ajax({
+        url: "/getConsumerOrder",
+        type: "POST",
+        data: {'account': account},
+        datatype: "JSON",
+        success: function(res) {
+          orderList = res.orderList;
+          comments = res.comments;
+          console.log(orderList, comments);
+          drawOrderList(orderList, comments);
+        },
+        fail: function(res) {
+          console.log("Fail to get order!");
+          console.log(res);
+        }
+      })
+    };
+
+    function rank_select(){
+      $("ul li.rank1").hover(function(){
+        $(this).addClass('color');
+        $(this).prevAll().addClass('color');
+      },function(){
+        $(this).removeClass('color');
+        $(this).prevAll().removeClass('color');
+      });
+
+      $(".cleanfloat li.rank1").click(function () {
+          $(this).addClass('cs');
+          $(this).prevAll().addClass('cs');
+          $(this).nextAll().removeClass('cs');
+          rank1 = $(this).prevAll().length+1
+          console.log(rank1);
+      })
+
+      
+      $(".cleanfloat li.rank2").hover(function(){
+        $(this).addClass('color');
+        $(this).prevAll().addClass('color');
+      },function(){
+        $(this).removeClass('color');
+        $(this).prevAll().removeClass('color');
+      });
+
+      $(".cleanfloat li.rank2").click(function () {
+        $(this).addClass('cs');
+        $(this).prevAll().addClass('cs');
+        $(this).nextAll().removeClass('cs');
+        rank2 = $(this).prevAll().length+1
+        console.log(rank2);
+      })
+
+          
+      $(".cleanfloat li.rank3").hover(function(){
+        $(this).addClass('color');
+        $(this).prevAll().addClass('color');
+      },function(){
+        $(this).removeClass('color');
+        $(this).prevAll().removeClass('color');
+      });
+
+      $(".cleanfloat li.rank3").click(function () {
+          $(this).addClass('cs');
+          $(this).prevAll().addClass('cs');
+          $(this).nextAll().removeClass('cs');
+          rank3 = $(this).prevAll().length+1
+          console.log(rank3);
+      })
+    }
+
+    $(document).ready(function(){
+      account = GetQueryString("account");
+      getCanteenInfo(account);
+      getConsumerOrder();
+
+    })
+    </script>
+</body>
+</html>

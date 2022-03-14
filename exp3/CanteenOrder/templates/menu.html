@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+  <head>
+    <title>Menu</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../static/imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&amp;family=Open+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/fonts.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+  </head>
+  <body>
+    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="../static/imgs/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="cssload-container">
+          <div class="cssload-speeding-wheel"></div>
+        </div>
+      </div>
+    </div>
+    <div class="page">
+        <header class="section page-header">
+        <!--RD Navbar-->
+        <div class="rd-navbar-wrap">
+          <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-xl-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-md-device-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="121px" data-xl-stick-up-offset="121px" data-xxl-stick-up-offset="121px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+            <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+            <div class="rd-navbar-aside-outer rd-navbar-collapse">
+              <div class="rd-navbar-aside">
+                哈尔滨工业大学(深圳)食堂订餐系统
+              </div>
+            </div>
+            <div class="rd-navbar-main-outer">
+              <div class="rd-navbar-main">
+                <!--RD Navbar Panel-->
+                <div class="rd-navbar-panel">
+                  <!--RD Navbar Toggle-->
+                  <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                  <!--RD Navbar Brand-->
+                  <div class="rd-navbar-brand">
+                    <!--Brand--><a class="brand" href="consumer_page.html"><img class="brand-logo-dark" src="../static/img/logo-default-151x53.svg" alt="" width="151" height="53"/></a>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- Breadcrumbs-->
+      <div class="breadcrumbs-mini">
+        <div class="container">
+          <div class="breadcrumbs-mini-link-wrap"><a class="breadcrumbs-mini-link link-svg" href="javascript :;" onClick="javascript :history.back(-1);">
+              <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.25 6.75H5.5375L10.0125 2.2625L8.25 0.5L0.75 8L8.25 15.5L10.0125 13.7375L5.5375 9.25H23.25V6.75Z"></path>
+              </svg></a></div>
+        </div>
+      </div>
+      <div id="menus">
+      
+      </div>
+      <!-- Footer-->
+      <footer class="section footer bg-primary">
+        <div class="container">
+          <div class="row row-50 align-items-center">
+            <div class="col-md-3 col-6 order-md-1">
+              <ul class="footer-nav">
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微信</a></li>
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微博</a></li>
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">美团</a></li>
+                <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">饿了吗</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-5 col-md-6">
+              <div class="footer-newsletter-box">
+              </div>
+              <p class="rights">Copyright &copy; 2021 Yikai-coder All rights reserved.<a target="_blank" href="https://github.com/Yikai-coder">Github Profile</a></p>
+            </div>
+            <div class="col-lg-1 d-none d-lg-block">
+              <div class="footer-border"></div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="snackbars" id="form-output-global"></div>
+    <script src="../static/js/core.min.js"></script>
+    <script src="../static/js/script.js"></script>
+    <script src="../static/js/my_script.js"></script>
+    <script type=text/javascript>
+      function getDishesFromDB (menuID) {
+        dishes = [];
+        $.ajax({
+          url: '/getDishesFromDB',
+          data: {'menuID': menuID},
+          datatype: 'JSON',
+          type: 'POST',
+          async: false,
+          success: function(res){
+            dishes = res.dishes;
+          },
+          fail: function(res){
+            console.log("Fail in getting dishes");
+            console.log(res);
+          }
+        })
+        return dishes;
+      }
+
+      function getStallsFromDB (canteenID) {
+        stalls=[];
+        $.ajax({
+          url: '/getStallsFromDB',
+          data: {'canteenID': canteenID},
+          datatype: "JSON",
+          type: "POST",
+          async: false,
+          success : function(res){
+            console.log("Success in getting stalls");
+            stalls = res.stalls;
+            stallRanks = res.stallRanks;
+            console.log(stalls);
+          },
+          fail : function(res){
+            console.log("Fail in getting stalls");
+            console.log(res);
+          }
+        })
+        return [stalls, stallRanks];
+      }
+
+      $(document).ready(function(){
+        canteenID = GetQueryString("canteenID");
+        account = GetQueryString("account");
+        returnRes = getStallsFromDB(canteenID);
+        stalls = returnRes[0];
+        stallRanks = returnRes[1]
+        console.log(stallRanks);
+        var str="";
+        for(var i = 0; i < stalls.length; i++)
+        {
+          if(i%2 == 0)
+            str+='\
+              <section class="section section-md section-md-3 bg-secondary-light">\
+              <div class="container">\
+                <div class="row row-50 justify-content-between">\
+                  <div class="col-xl-5 col-md-6"><img src="'+stalls[i][3]+'" alt="" width="510" height="349"/>\
+                  </div>\
+                  <div class="col-md-6">\
+                      <div class="menu">\
+                        <div class="menu-head">\
+                          <h4 class="menu-head-title">'
+          else
+            str+='\
+                <section class="section section-md section-md-3 bg-primary-light-4">\
+                <div class="container">\
+                  <div class="row row-50 justify-content-between flex-md-row-reverse">\
+                    <div class="col-xl-5 col-md-6"><img src="'+stalls[i][3]+'" alt="" width="510" height="349"/>\
+                    </div>\
+                    <div class="col-md-6">\
+                        <div class="menu">\
+                          <div class="menu-head">\
+                            <h4 class="menu-head-title">\
+              ';
+          str+=stalls[i][1];
+          str+='\
+              </h4>\
+              <p class="menu-head-time">档口评分</p>\
+              <p>'+stallRanks[i]+'/3</p>\
+              </div>\
+              <hr>\
+              <div class="menu-body">\
+              '
+          var dishes = getDishesFromDB(stalls[i][2]);
+          for(var j = 0; j < dishes.length; j++)
+          {
+            str+='\
+              <div class="menu-item">\
+                  <div class="menu-content">\
+                    <p class="lead menu-title"><a href="/details?dishID='+dishes[j][0]+'&account='+account+'">'+dishes[j][1]+'</a></p>\
+                  </div>\
+                  <div class="h5 menu-price">￥'+dishes[j][2]+'</div>\
+                  </div>';
+          }
+          str+='\
+            </div>\
+            </div>\
+            </div>\
+            </div>\
+            </div>\
+            </section>';
+        }
+        document.getElementById('menus').innerHTML = str
+      })
+
+    </script>
+  </body>
+</html>

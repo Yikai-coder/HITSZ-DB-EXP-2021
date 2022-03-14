@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="wide wow-animation" lang="en">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="icon" href="../static/img/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css"
+    href="//fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital@0;1&amp;family=Open+Sans:ital,wght@0,400;0,600;1,400&amp;display=swap">
+  <link rel="stylesheet" href="../static/css/bootstrap.css">
+  <link rel="stylesheet" href="../static/css/fonts.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/consumer_page.css">
+
+  <style>
+    .ie-panel {
+      display: none;
+      background: #212121;
+      padding: 10px 0;
+      box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, .3);
+      clear: both;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    html.ie-10 .ie-panel,
+    html.lt-ie-10 .ie-panel {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img
+        src="../static/img/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820"
+        alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+  </div>
+  <div class="preloader">
+    <div class="preloader-body">
+      <div class="cssload-container">
+        <div class="cssload-speeding-wheel"></div>
+      </div>
+    </div>
+  </div>
+  <div class="page">
+    <header class="section page-header">
+      <!--RD Navbar-->
+      <div class="rd-navbar-wrap">
+        <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+          data-md-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-xl-layout="rd-navbar-static"
+          data-xxl-layout="rd-navbar-static" data-md-device-layout="rd-navbar-fixed"
+          data-lg-device-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static"
+          data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="121px" data-xl-stick-up-offset="121px"
+          data-xxl-stick-up-offset="121px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+          <div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse">
+            <span></span></div>
+          <div class="rd-navbar-aside-outer rd-navbar-collapse">
+            <div class="rd-navbar-aside">
+              哈尔滨工业大学(深圳)食堂订餐系统
+            </div>
+          </div>
+          <div class="rd-navbar-main-outer">
+            <div class="rd-navbar-main">
+              <!--RD Navbar Panel-->
+              <div class="rd-navbar-panel">
+                <!--RD Navbar Toggle-->
+                <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                <!--RD Navbar Brand-->
+                <div class="rd-navbar-brand">
+                  <!--Brand--><a class="brand" href="consumer_page.html"><img class="brand-logo-dark"
+                      src="../static/img/logo-default-151x53.svg" alt="" width="151" height="53" /></a>
+                </div>
+              </div>
+              <div class="rd-navbar-main-element">
+                <div class="rd-navbar-nav-wrap">
+                  <ul class="rd-navbar-nav">
+                    <li class="rd-nav-item active"><a class="rd-nav-link" href="consumer_page">订单</a>
+                    </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="stall_keeper_menu" id='jump_to_menu_tab'>菜单</a>
+                      <!-- <ul class="rd-menu rd-navbar-dropdown" , id="canteenList"></ul> -->
+                    <!-- </li>
+                    <li class="rd-nav-item"><a class="rd-nav-link" href="stall_keeper">商户主页</a>
+                    </li> -->
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- Order List-->
+    <section >
+      <div class="container" style="text-align: center;" width="100%" height = "100%">
+        <h1>您的订单</h1>
+        <div class="container grid-demo grid-demo-underlined" id='orderList'>
+          <!-- <table border="1" style="text-align: center; width: 80%; position: absolute; height: 100%" id="orderTable">
+          </table> -->
+        </div>
+      </div>
+    </section>
+    <!-- 遮罩层 -->
+    <div id="cover" class="backgroundCover">
+    </div>
+    <!-- 弹窗 -->
+    <div class="col-md-9 col-lg-7 col-xl-5" id='showWindow' style="display: none; min-height: 150px; height: auto; width: 500px; position: absolute; top: 10%; left: 40%; z-index: 3; background: #ffffff; border: 1px solid #000000;border-radius: 5px;">
+      <!-- <div class="col-4" id="windowTitle"> -->
+        <h6 align="center" color:'#000';>确认收到订单了吗</h6>
+        <div class="btn btn-sm btn-secondary btn-round-2" onclick="closeWindow()" style=" margin-left: 20%">取消</div>
+        <div class="btn btn-sm btn-secondary btn-round-2" onclick="confirmOrder()" style=" margin-right:20%" id="confirmOrderButton">确定</div>
+
+      <!-- </div> -->
+    </div>
+
+    <footer class="section footer bg-primary">
+      <div class="container">
+        <div class="row row-50 align-items-center">
+          <div class="col-md-3 col-6 order-md-1">
+            <ul class="footer-nav">
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微信</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">微博</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">美团</a></li>
+              <li class="footer-nav-item"><a class="footer-nav-link h4" href="#">饿了吗</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-5 col-md-6">
+            <div class="footer-newsletter-box">
+            </div>
+            <p class="rights">Copyright &copy; 2021 Yikai-coder All rights reserved.<a target="_blank" href="https://github.com/Yikai-coder">Github Profile</a></p>
+          </div>
+          <div class="col-lg-1 d-none d-lg-block">
+            <div class="footer-border"></div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <div class="snackbars" id="form-output-global"></div>
+  <script src="../static/js/core.min.js"></script>
+  <script src="../static/js/script.js"></script>
+  <script src="../static/js/my_script.js"></script>
+  <script type=text/javascript> 
+    var canteenNames; 
+    var canteenIDs;
+    var account; 
+    var orderIDs = [];
+    var confirmOrderID;
+
+    function getCanteenInfo (account) { 
+      $.ajax({
+        url: "/getCanteenInfo" , 
+        type: "POST" , 
+        success : function(res){ 
+          console.log(res); 
+          canteenNames=res.canteenNames;
+          canteenIDs=res.canteenIDs; 
+          var str="" ; 
+          console.log(canteenNames); 
+          for (var i=0; i < canteenNames.length; i++) {
+            str+='<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="menu?canteenID=' +canteenIDs[i]+'&account='+account+'">'+canteenNames[i]+'</a></li>';
+          }
+          console.log("str: "+str)
+          document.getElementById("canteenList").innerHTML=str;
+          console.log(document.getElementById("canteenList"));
+          }
+        })
+    };
+
+    function confirmFinish(orderID) {
+      console.log(orderID);
+      console.log("openFinish");
+      //document.getElementById("dishSize").innerHTML; 
+      showWindow(orderID);
+      confirmOrderID = orderID;
+    };
+    // 弹窗
+    function showWindow() {
+      $('#showWindow').show();  //显示弹窗
+      $('#cover').css('display','block'); //显示遮罩层
+      $('#cover').css('height',document.body.clientHeight+'px'); //设置遮罩层的高度为当前页面高度
+    };
+    // 关闭弹窗
+    function closeWindow() {
+      $('#showWindow').hide();  //隐藏弹窗
+      $('#cover').css('display','none');   //显示遮罩层
+    };
+
+    function drawOrderList(orderList) {
+      var str = "";
+      var obj = document.getElementById("orderList");
+      for (var i = 0; i < orderList.length; i++)
+      {
+        str+="<div class='row'>\
+                <div class='col-2'>\
+                  <h6>"+orderList[i][2]+"</h6>\
+                </div>\
+                <div class='col-2'>\
+                    <h6>"+orderList[i][0]+"</h6>\
+                  </div>\
+                <div class='col-2'>\
+                  <p>"+orderList[i][7]+"</p>\
+                </div>\
+                <div class='col-2'>\
+                  <h6>￥"+orderList[i][4]+"</h6>\
+                </div>\
+                <div class='col-2'>\
+                  <h6>"+orderList[i][6]+"</h6>\
+                </div>\
+                <div class='col-2'>\
+                    <p>"+orderList[i][8]+"</p>\
+                </div>\
+              "
+        
+        str+="</div>\</div>"
+        orderIDs.push(orderList[i][3]);
+      }
+      console.log(str);
+      obj.innerHTML = str;
+    };
+
+    function getStallOrder() {
+        console.log("enter stall order");
+        $.ajax({
+            url: "/getStallOrder",
+            type: "POST",
+            data: {'account': account},
+            datatype: "JSON",
+            success: function(res) {
+                console.log("stall order:");
+                console.log(res);
+                orderList = res.orderList;
+                console.log(orderList);
+                drawOrderList(orderList);
+            },
+            fail: function(res) {
+                console.log("Fail to get order!");
+                console.log(res);
+                }
+        })
+    };
+
+    $(document).ready(function(){
+      account = GetQueryString("account");
+      console.log(account);
+      document.getElementById("jump_to_menu_tab").href = "stall_keeper_menu?account="+account;
+
+      getStallOrder();
+    })
+    </script>
+</body>
+</html>
